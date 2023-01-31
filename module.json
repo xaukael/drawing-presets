@@ -1,0 +1,16 @@
+{
+    "id": "drawing-presets",
+    "title": "Drawing Presets",
+    "description": "Save presets in the drawing configuration",
+    "author": "Xaukael",
+    "authors": [{"name":"Xaukael"}],
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "10"
+      },
+    "scripts": ["drawing-presets.js"],
+    "url": "https://github.com/xaukael/drawing-presets/",
+    "manifest": "https://github.com/xaukael/drawing-presets/raw/main/module.json",
+    "download": "https://github.com/xaukael/drawing-presets/raw/main/drawing-presets.zip"
+}
