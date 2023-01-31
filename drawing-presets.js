@@ -1,4 +1,5 @@
 Hooks.on('renderDrawingConfig', (app, html)=>{
+  if (app.object._object) return;
   let $presets = $(`<section class="presets" style="margin-top:.5em;"><style>#${app.id}{height:auto !important;}</style><input type="text" placeholder="Preset Name" style="display:inline; width: 92%;"></input></section>`);
   $presets.append($('<a class="save-preset" style="width: 8%; display: inline-block; text-align: center;" data-tooltip="Save Preset"><i class="fa-solid fa-floppy-disk"></i></a>').click(async function(){
     let formArray = html.find('form').serializeArray();
