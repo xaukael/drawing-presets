@@ -1,5 +1,4 @@
 Hooks.on('renderDrawingConfig', (app, html)=>{
-  console.log(game.user.getFlag('drawing-presets', 'presets'))
   let $presets = $(`<section class="presets" style="margin-top:.5em;"><style>#${app.id}{height:auto !important;}</style><input type="text" placeholder="Preset Name" style="display:inline; width: 92%;"></input></section>`);
   $presets.append($('<a class="save-preset" style="width: 8%; display: inline-block; text-align: center;" data-tooltip="Save Preset"><i class="fa-solid fa-floppy-disk"></i></a>').click(async function(){
     let name = $(this).prev().val();
@@ -25,8 +24,7 @@ Hooks.on('renderDrawingConfig', (app, html)=>{
       let formArray = html.find('form').serializeArray()
       let config = formArray.reduce((config, field)=>{config[field.name]=field.value; return config;},{});
       config = foundry.utils.expandObject(config);
-      console.log(config);
-      delete config.shape;    delete config.x;    delete config.y;    delete config.z;    delete config._id; console.log(config);
+      delete config.shape;    delete config.x;    delete config.y;    delete config.z;    delete config._id; 
       await game.user.setFlag('drawing-presets', `presets.${$(this).parent().attr('id')}.config`, config);
       if (app.object._object) return app.object.update(preset.config);
       await game.settings.set("core", DrawingsLayer.DEFAULT_CONFIG_SETTING, config);
